@@ -1,0 +1,6 @@
+#!/bin/bash
+
+base_image_gpu="nvidia/cuda:10.0-cudnn7-devel-ubuntu18.04"
+base_image_cpu="ubuntu:18.04"
+
+docker build --build-arg BASE_IMAGE=${base_image_gpu} -f $DOCKERFILE_PATH -t $IMAGE_NAME . 
