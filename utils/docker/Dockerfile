@@ -222,6 +222,11 @@ RUN cd /tmp && \
     cmake -G "Unix Makefiles" -DCMAKE_BUILD_TYPE=Release  -DFLATBUFFERS_BUILD_SHAREDLIB=ON && make -j && make install && \
     rm -fr /tmp/flatbuffers 
 
+# Install Popart SDK
+#ARG POPLAR_PKG_FILE=/dev/null
+#COPY  ${POPLAR_PKG_FILE} /opt
+#RUN if [[ -s /opt/${POPLAR_PKG_FILE} ]]; then cd /opt && tar -zxvf ${POPLAR_PKG_FILE} && rm ${POPLAR_PKG_FILE}; fi
+
 
 RUN mkdir -p /var/run/sshd
 RUN sed -i 's/prohibit-password/yes/' /etc/ssh/sshd_config
